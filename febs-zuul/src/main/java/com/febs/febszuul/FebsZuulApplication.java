@@ -1,18 +1,17 @@
-package com.febs.febsauth;
+package com.febs.febszuul;
 
-import com.febs.common.annotation.EnableFebsAuthExceptionHandler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-//注入401和403异常类
-@EnableFebsAuthExceptionHandler
-public class FebsAuthApplication {
+@EnableZuulProxy
+public class FebsZuulApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FebsAuthApplication.class, args);
+        SpringApplication.run(FebsZuulApplication.class, args);
     }
 
 }

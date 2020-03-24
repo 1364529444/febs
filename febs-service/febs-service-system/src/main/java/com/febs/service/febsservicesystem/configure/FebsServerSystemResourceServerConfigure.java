@@ -1,4 +1,4 @@
-package com.febs.febsauth.configure;
+package com.febs.service.febsservicesystem.configure;
 
 import com.febs.common.handler.FebsAccessDeniedHandler;
 import com.febs.common.handler.FebsAuthExceptionEntryPoint;
@@ -11,12 +11,11 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 
 @Configuration
 @EnableResourceServer
-public class FebsResourceServerConfigure extends ResourceServerConfigurerAdapter {
-    //导入两个异常类
+public class FebsServerSystemResourceServerConfigure extends ResourceServerConfigurerAdapter {
     @Autowired
-    private FebsAccessDeniedHandler accessDeniedHandler;
+    private FebsAccessDeniedHandler febsAccessDeniedHandler;
     @Autowired
-    private FebsAuthExceptionEntryPoint exceptionEntryPoint;
+    private FebsAuthExceptionEntryPoint febsAuthExceptionEntryPoint;
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
@@ -29,6 +28,6 @@ public class FebsResourceServerConfigure extends ResourceServerConfigurerAdapter
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-        resources.authenticationEntryPoint(exceptionEntryPoint).accessDeniedHandler(accessDeniedHandler);
+        resources.accessDeniedHandler(febsAccessDeniedHandler).authenticationEntryPoint(febsAuthExceptionEntryPoint);
     }
 }

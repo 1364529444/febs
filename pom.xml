@@ -22,6 +22,8 @@
         <module>febs-register</module>
         <module>febs-common</module>
         <module>febs-auth</module>
+        <module>febs-zuul</module>
+        <module>febs-service</module>
     </modules>
     <dependencyManagement>
         <dependencies>
