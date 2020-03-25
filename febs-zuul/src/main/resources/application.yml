@@ -2,6 +2,8 @@ server:
   port: 8003
 
 spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   application:
     name: FEBS-Gateway
 
@@ -37,3 +39,7 @@ zuul:
 
 ribbon:
   ReadTimeout: 3000
+zuul:
+  SendErrorFilter:
+    error:
+      disable: true
